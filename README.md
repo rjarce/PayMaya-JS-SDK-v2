@@ -1,6 +1,16 @@
 ## Overview
 
-Official client side SDK by PayMaya Payment Gateway. For assistance you may reach us through paymayadevs@voyager.ph
+Official JavaScript client-side SDK by Maya Philippines for [online payment solutions](https://developers.maya.ph/docs/online-payments).
+For assistance, please check our [developer support page](https://developers.maya.ph/docs/support).
+
+## Supported Use Cases
+
+* [Checkout](https://developers.maya.ph/docs/maya-checkout)
+* [Maya Vault](https://developers.maya.ph/docs/maya-vault)
+  * One-time payment
+  * Capturing tokenized card information via a customizable credit card form
+* [Pay with Maya](https://developers.maya.ph/docs/pay-with-maya)
+  * Create a link to a Maya Wallet
 
 ## Install
 
@@ -221,6 +231,23 @@ Returns `Promise<void>`
 | requestReferenceNumber | string | | Request reference number |
 | metadata | object | | Additional information regarding payment |
 
+---
+
+#### `createCreditCardForm(targetHtmlElement, options)`
+This method creates a credit card form in selected html element, by embedding a safe iframe instance in it - allowing the user to fill his credit card information in a safe manner.
+
+Returns `void`
+
+`createdCreditCardForm` properties:
+
+| Parameter             | Type   | Required | Description                                                       |
+|-----------------------|--------|----------|--------------------------------------------------------|
+| targetHtmlElement | HTMLElement | Yes | a target html element in which form will be embedded |
+| options | object | No | options object containing styling schema |
+| options.buttonText | string | No | label text for a button inside the form |
+| options.buttonColor | string | No | button color (example: '#000') |
+| options.buttonTextColor | string | No | button text color (example: '#000') |
+| options.showLogo | boolean | No | boolean whether to show PayMaya logo or not |
 
 ---
 
@@ -247,24 +274,6 @@ sdk
 | Parameter             | Type   | Required | Description                                                       |
 |-----------------------|--------|----------|--------------------------------------------------------|
 | paymentTokenId | string | | a string that will be passed as argument to merchant's callback function |
-
----
-
-#### `createCreditCardForm(targetHtmlElement, options)`
-This method creates a credit card form in selected html element, by embedding a safe iframe instance in it - allowing the user to fill his credit card information in a safe manner.
-
-Returns `void`
-
-`createdCreditCardForm` properties:
-
-| Parameter             | Type   | Required | Description                                                       |
-|-----------------------|--------|----------|--------------------------------------------------------|
-| targetHtmlElement | HTMLElement | Yes | a target html element in which form will be embedded |
-| options | object | No | options object containing styling schema |
-| options.buttonText | string | No | label text for a button inside the form |
-| options.buttonColor | string | No | button color (example: '#000') |
-| options.buttonTextColor | string | No | button text color (example: '#000') |
-| options.showLogo | boolean | No | boolean whether to show PayMaya logo or not |
 
 ## Examples
 
